@@ -1,0 +1,98 @@
+body {
+  background-color: #0D1B2A;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.form-box {
+  background-color: white;
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  text-align: center;
+}
+
+/* 🟦 Login/Register tab buttons */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: white;
+  color: #0D1B2A;
+  border-radius: 8px 8px 0 0;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background-color: #415A77;
+  color: white;
+  border: 1px solid #415A77;
+}
+
+.tab:hover {
+  background-color: #778DA9;
+  color: white;
+}
+
+h2 {
+  color: #0D1B2A;
+  margin-bottom: 20px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  background-color: #415A77;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #778DA9;
+}
+
+label {
+  display: block;
+  text-align: left;
+  color: #0D1B2A;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.flash {
+  background-color: #E0E1DD;
+  color: #0D1B2A;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}

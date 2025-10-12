@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tenant Rooms</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #415A77;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .room-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      padding: 20px 0 50px;
+    }
+
+    .room-item {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 85%;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .room-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .room-item img {
+      width: 35%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .room-details {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .room-details h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #222;
+    }
+
+    .room-details p {
+      margin: 6px 0;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .room-buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 10px;
+      padding: 0 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .reserve-btn {
+      background-color: #415A77;
+      color: white;
+    }
+
+    .reserve-btn:hover {
+      background-color: #324a66;
+    }
+
+    .details-btn {
+      background-color: #e0e0e0;
+      color: #333;
+    }
+
+    .details-btn:hover {
+      background-color: #d0d0d0;
+    }
+
+    @media (max-width: 768px) {
+      .room-item {
+        flex-direction: column;
+        width: 95%;
+      }
+
+      .room-item img {
+        width: 100%;
+        height: 200px;
+      }
+
+      .room-buttons {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 15px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GET IT NOW</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#" style="color:#415A77; font-weight:600;">Rooms</a>
+      <a href="#">Facilities</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <h2>RESERVE ROOMS</h2>
+
+  <div class="room-list">
+
+    <div class="room-item">
+      <img src="p1.jpg.JPG" alt="Supreme Deluxe">
+      <div class="room-details">
+        <h3>Reveche Bhouse</h3>
+        <p>₱1,500 per month</p>
+          <p><strong>Location:</strong> Poblacion Ward II Reveche Street Quin City</p>
+        <p><strong>Features:</strong> Bedroom, Balcony, Kitchen</p>
+        <p><strong>Facilities:</strong> Wifi, Air Conditioner, Room Heater, Geyser</p>
+
+          <p><strong>Available:</strong> Room 2 (Shown in the photo)</p>
+      </div>
+      <div class="room-buttons">
+        <button class="btn reserve-btn">Reserve Now</button>
+        <button class="btn details-btn">More Details</button>
+      </div>
+    </div>
+
+    <div class="room-item">
+      <img src="p2.jpg.jpg" alt="Luxury Room">
+      <div class="room-details">
+        <h3>Quinny Dy Bhouse</h3>
+        <p>₱2,000 per month</p>
+          <p><strong>Location:</strong> Poblacion Ward II Reveche Street Quin City</p>
+        <p><strong>Features:</strong> Bedroom, Balcony, Kitchen</p>
+        <p><strong>Facilities:</strong> Wifi, Air Conditioner, Room Heater</p>
+
+      </div>
+      <div class="room-buttons">
+        <button class="btn reserve-btn">Reserve Now</button>
+        <button class="btn details-btn">More Details</button>
+      </div>
+    </div>
+
+    <div class="room-item">
+      <img src="p3.jpg.jpg" alt="Deluxe Room">
+      <div class="room-details">
+        <h3>Elora Chin Bhouse</h3>
+        <p>₱1,000 per month</p>
+          <p><strong>Location:</strong> Poblacion Ward II Reveche Street Quin City</p>
+        <p><strong>Features:</strong> Bedroom, Balcony, Kitchen</p>
+        <p><strong>Facilities:</strong> Air Conditioner, Room Heater, Geyser</p>
+
+      </div>
+      <div class="room-buttons">
+        <button class="btn reserve-btn">Reserve Now</button>
+        <button class="btn details-btn">More Details</button>
+      </div>
+    </div>
+
+    <!-- Added 3 more rooms -->
+    <div class="room-item">
+      <img src="p4.jpg.jpg" alt="Family Suite">
+      <div class="room-details">
+        <h3>Rawr Bh</h3>
+        <p>₱1,200 per month</p>
+          <p><strong>Location:</strong> Poblacion Ward II Reveche Street Quin City</p>
+        <p><strong>Features:</strong> 2 Bedrooms, Living Room, Kitchen</p>
+        <p><strong>Facilities:</strong> Wifi, Air Conditioner, Room Service, Geyser</p>
+
+      </div>
+      <div class="room-buttons">
+        <button class="btn reserve-btn">Reserve Now</button>
+        <button class="btn details-btn">More Details</button>
+      </div>
+    </div>
+
+    <div class="room-item">
+      <img src="p5.jpg.jpg" alt="Couple Room">
+      <div class="room-details">
+        <h3>Old Creepy Bhouse</h3>
+        <p>₱700 per month</p>
+          <p><strong>Location:</strong> Poblacion Ward II Reveche Street Quin City</p>
+        <p><strong>Features:</strong> Bedroom, Balcony</p>
+        <p><strong>Facilities:</strong> Wifi, Air Conditioner, Hot Shower</p>
+
+      </div>
+      <div class="room-buttons">
+        <button class="btn reserve-btn">Reserve Now</button>
+        <button class="btn details-btn">More Details</button>
+      </div>
+    </div>
+
+    <div class="room-item">
+      <img src="p6.jpg.jpg" alt="Budget Room">
+      <div class="room-details">
+        <h3>Paradise Meow Bhouse </h3>
+        <p>₱1M per month</p>
+          <p><strong>Location:</strong> Poblacion Ward II Reveche Street Quin City</p>
+        <p><strong>Features:</strong> Bedroom, Fan, Shared Bathroom</p>
+        <p><strong>Facilities:</strong> Free Wifi, Clean Towels</p>
+
+      </div>
+      <div class="room-buttons">
+        <button class="btn reserve-btn">Reserve Now</button>
+        <button class="btn details-btn">More Details</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

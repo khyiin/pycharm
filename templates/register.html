@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="form-box">
+    <div class="tab-buttons">
+      <a href="{{ url_for('login') }}" class="tab">Login</a>
+      <button class="tab active">Register</button>
+    </div>
+
+    <h2>Create Account</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+
+      <label for="user_type">User Type:</label>
+      <select name="user_type" required>
+        <option value="tenant">Tenant</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</body>
+</html>
