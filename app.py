@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
-# Temporary in-memory "database"
+
 users = []
 
 @app.route('/')

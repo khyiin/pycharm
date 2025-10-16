@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="785d8ee0-e556-4207-a95b-125c7cde8ca0" name="Changes" comment="" />
+    <list default="true" id="785d8ee0-e556-4207-a95b-125c7cde8ca0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/p1.jpg.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/p2.jpg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/p2.jpg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/p3.jpg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/p3.jpg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/p4.jpg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/p4.jpg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/p5.jpg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/p5.jpg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/p6.jpg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/p6.jpg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tenant.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +28,9 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -32,9 +46,19 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.app.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true"
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "run.code.analysis.last.selected.profile": "aDefault"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\allec\PycharmProjects\webrev\static\images" />
+      <recent name="C:\Users\allec\PycharmProjects\webrev\templates" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
