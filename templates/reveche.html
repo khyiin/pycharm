@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reserve - Reveche Bhouse</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      padding: 40px;
+    }
+    .container {
+      background: #fff;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #415A77;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 500;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #415A77;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #324a66;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Reserve a Room at Reveche Bhouse</h2>
+    <form action="#" method="post">
+      <label>Full Name</label>
+      <input type="text" name="name" required>
+
+      <label>Contact Number</label>
+      <input type="text" name="contact" required>
+
+      <label>Room Number</label>
+      <select name="room">
+        <option>Room 2</option>
+      </select>
+
+      <label>Duration of Stay</label>
+      <input type="text" name="duration" placeholder="e.g. 1 month">
+
+      <label>Additional Notes</label>
+      <textarea name="notes" rows="3"></textarea>
+
+      <button type="submit">Submit Reservation</button>
+    </form>
+  </div>
+</body>
+</html>

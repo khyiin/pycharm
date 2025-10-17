@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reveche Bhouse - Details</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      padding: 40px;
+    }
+    .container {
+      background: #fff;
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    img {
+      width: 100%;
+      height: 350px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    h2 { color: #415A77; text-align: center; }
+    p { color: #333; line-height: 1.6; }
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      background-color: #415A77;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    a:hover { background-color: #324a66; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="../static/images/p1.jpg.JPG" alt="Reveche Bhouse">
+    <h2>Reveche Bhouse</h2>
+    <p><strong>₱1,500 per month</strong></p>
+    <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
+    <p><strong>Facilities:</strong> Wifi, Electric Fan, Shared Bathroom</p>
+    <p><strong>Available:</strong> Room 2</p>
+    <p>
+      Reveche Bhouse is perfect for those looking for a comfortable and budget-friendly space in the heart of Quin City.
+      With reliable Wi-Fi and essential amenities, it’s great for students or workers who want a calm and cozy place to stay.
+    </p>
+    <a href="{{ url_for('tenant_dashboard') }}">← Back to Rooms</a>
+  </div>
+</body>
+</html>

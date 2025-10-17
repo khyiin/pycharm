@@ -10,7 +10,6 @@
       margin: 0;
       padding: 0;
     }
-
     header {
       background-color: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -19,242 +18,156 @@
       justify-content: space-between;
       align-items: center;
     }
-
-    header h1 {
-      font-size: 24px;
-      color: #000;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #000;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #415A77;
-    }
-
-    h2 {
-      text-align: center;
-      margin: 40px 0 20px;
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .room-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-      padding: 20px 0 50px;
-    }
-
+    header h1 { font-size: 24px; color: #000; }
+    nav a { text-decoration: none; color: #000; margin-left: 20px; font-weight: 500; }
+    nav a:hover { color: #415A77; }
+    h2 { text-align: center; margin: 40px 0 20px; font-size: 28px; font-weight: bold; letter-spacing: 2px; }
+    .room-list { display: flex; flex-direction: column; align-items: center; gap: 25px; padding: 20px 0 50px; }
     .room-item {
-      display: flex;
-      align-items: center;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 85%;
-      overflow: hidden;
+      display: flex; align-items: center; background: #fff; border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 85%; overflow: hidden;
       transition: transform 0.3s ease;
     }
-
-    .room-item:hover {
-      transform: translateY(-3px);
-    }
-
-    .room-item img {
-      width: 35%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .room-details {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .room-details h3 {
-      margin: 0;
-      font-size: 20px;
-      color: #222;
-    }
-
-    .room-details p {
-      margin: 6px 0;
-      color: #555;
-      font-size: 14px;
-    }
-
+    .room-item:hover { transform: translateY(-3px); }
+    .room-item img { width: 35%; height: 220px; object-fit: cover; }
+    .room-details { flex: 1; padding: 20px; }
+    .room-details h3 { margin: 0; font-size: 20px; color: #222; }
+    .room-details p { margin: 6px 0; color: #555; font-size: 14px; }
     .room-buttons {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 10px;
-      padding: 0 20px;
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: flex-end; gap: 10px; padding: 0 20px;
     }
-
     .btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: 0.3s;
+      padding: 10px 20px; border: none; border-radius: 6px; font-size: 14px;
+      cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block;
+      text-align: center;
     }
-
-    .reserve-btn {
-      background-color: #415A77;
-      color: white;
-    }
-
-    .reserve-btn:hover {
-      background-color: #324a66;
-    }
-
-    .details-btn {
-      background-color: #e0e0e0;
-      color: #333;
-    }
-
-    .details-btn:hover {
-      background-color: #d0d0d0;
-    }
+    .reserve-btn { background-color: #415A77; color: white; }
+    .reserve-btn:hover { background-color: #324a66; }
+    .details-btn { background-color: #e0e0e0; color: #333; }
+    .details-btn:hover { background-color: #d0d0d0; }
 
     @media (max-width: 768px) {
-      .room-item {
-        flex-direction: column;
-        width: 95%;
-      }
-
-      .room-item img {
-        width: 100%;
-        height: 200px;
-      }
-
-      .room-buttons {
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding: 15px 0;
-      }
+      .room-item { flex-direction: column; width: 95%; }
+      .room-item img { width: 100%; height: 200px; }
+      .room-buttons { flex-direction: row; justify-content: space-around; align-items: center; padding: 15px 0; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>GET IT NOW</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#" style="color:#415A77; font-weight:600;">Rooms</a>
-      <a href="#">Facilities</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>GET IT NOW</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#" style="color:#415A77; font-weight:600;">Rooms</a>
+    <a href="#">Facilities</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
 
-  <h2>RESERVE ROOMS</h2>
+<h2>RESERVE ROOMS</h2>
 
-  <div class="room-list">
+<div class="room-list">
 
-    <div class="room-item">
-      <img src="../static/images/p1.jpg.JPG" alt="Reveche Bhouse">
-      <div class="room-details">
-        <h3>Reveche Bhouse</h3>
-        <p>₱1,500 per month</p>
-        <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
-        <p><strong>Facilities:</strong> Wifi, Electric Fan, Shared Bathroom</p>
-        <p><strong>Available:</strong> Room 2</p>
-      </div>
-      <div class="room-buttons">
-        <button class="btn reserve-btn">Reserve Now</button>
-        <button class="btn details-btn">More Details</button>
-      </div>
+  <!-- Reveche Bhouse -->
+  <div class="room-item">
+    <img src="../static/images/p1.jpg.JPG" alt="Reveche Bhouse">
+    <div class="room-details">
+      <h3>Reveche Bhouse</h3>
+      <p>₱1,500 per month</p>
+      <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
+      <p><strong>Facilities:</strong> Wifi, Electric Fan, Shared Bathroom</p>
+      <p><strong>Available:</strong> Room 2</p>
     </div>
-
-    <div class="room-item">
-      <img src="../static/images/p2.jpg.jpg" alt="Quinny Dy Bhouse">
-      <div class="room-details">
-        <h3>Quinny Dy Bhouse</h3>
-        <p>₱2,000 per month</p>
-        <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
-        <p><strong>Facilities:</strong> Wifi, Private Bathroom</p>
-        <p><strong>Available:</strong> Room 4</p>
-      </div>
-      <div class="room-buttons">
-        <button class="btn reserve-btn">Reserve Now</button>
-        <button class="btn details-btn">More Details</button>
-      </div>
+    <div class="room-buttons">
+      <a href="{{ url_for('reveche') }}" class="btn reserve-btn">Reserve Now</a>
+      <a href="{{ url_for('reveched') }}" class="btn details-btn">More Details</a>
     </div>
-
-    <div class="room-item">
-      <img src="../static/images/p3.jpg.jpg" alt="Elora Chin Bhouse">
-      <div class="room-details">
-        <h3>Elora Chin Bhouse</h3>
-        <p>₱1,000 per month</p>
-        <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
-        <p><strong>Facilities:</strong> Wifi, Shared Bathroom</p>
-        <p><strong>Available:</strong> Room 3</p>
-      </div>
-      <div class="room-buttons">
-        <button class="btn reserve-btn">Reserve Now</button>
-        <button class="btn details-btn">More Details</button>
-      </div>
-    </div>
-
-    <div class="room-item">
-      <img src="../static/images/p4.jpg.jpg" alt="Rawr Bhouse">
-      <div class="room-details">
-        <h3>Rawr Bhouse</h3>
-        <p>₱1,200 per month</p>
-        <p><strong>Type:</strong> Double Capacity Room</p>
-        <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
-        <p><strong>Facilities:</strong> Wifi, Electric Fan, Shared Bathroom</p>
-        <p><strong>Available:</strong> Room 1 and Room 2</p>
-      </div>
-      <div class="room-buttons">
-        <button class="btn reserve-btn">Reserve Now</button>
-        <button class="btn details-btn">More Details</button>
-      </div>
-    </div>
-
-    <div class="room-item">
-      <img src="../static/images/p5.jpg.jpg" alt="Old Creepy Bhouse">
-      <div class="room-details">
-        <h3>Old Creepy Bhouse</h3>
-        <p>₱700 per month</p>
-        <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
-        <p><strong>Facilities:</strong> Wifi, Shared Bathroom</p>
-        <p><strong>Available:</strong> Room 6</p>
-      </div>
-      <div class="room-buttons">
-        <button class="btn reserve-btn">Reserve Now</button>
-        <button class="btn details-btn">More Details</button>
-      </div>
-    </div>
-
-    <div class="room-item">
-      <img src="../static/images/p6.jpg.jpg" alt="Paradise Meow Bhouse">
-      <div class="room-details">
-        <h3>Paradise Meow Bhouse</h3>
-        <p>₱1,000,000 per month</p>
-        <p><strong>Type:</strong> Double Capacity Room</p>
-        <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
-        <p><strong>Facilities:</strong> Wifi, Clean Towels, Shared Bathroom</p>
-        <p><strong>Available:</strong> Room 5 and Room 6</p>
-      </div>
-      <div class="room-buttons">
-        <button class="btn reserve-btn">Reserve Now</button>
-        <button class="btn details-btn">More Details</button>
-      </div>
-    </div>
-
   </div>
 
+  <!-- Quinny Dy Bhouse -->
+  <div class="room-item">
+    <img src="../static/images/p2.jpg.jpg" alt="Quinny Dy Bhouse">
+    <div class="room-details">
+      <h3>Quinny Dy Bhouse</h3>
+      <p>₱2,000 per month</p>
+      <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
+      <p><strong>Facilities:</strong> Wifi, Private Bathroom</p>
+      <p><strong>Available:</strong> Room 4</p>
+    </div>
+    <div class="room-buttons">
+      <a href="{{ url_for('quinny') }}" class="btn reserve-btn">Reserve Now</a>
+      <a href="{{ url_for('quinnyd') }}" class="btn details-btn">More Details</a>
+    </div>
+  </div>
+
+  <!-- Elora Chin Bhouse -->
+  <div class="room-item">
+    <img src="../static/images/p3.jpg.jpg" alt="Elora Chin Bhouse">
+    <div class="room-details">
+      <h3>Elora Chin Bhouse</h3>
+      <p>₱1,000 per month</p>
+      <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
+      <p><strong>Facilities:</strong> Wifi, Shared Bathroom</p>
+      <p><strong>Available:</strong> Room 3</p>
+    </div>
+    <div class="room-buttons">
+      <a href="{{ url_for('elora') }}" class="btn reserve-btn">Reserve Now</a>
+      <a href="{{ url_for('elorad') }}" class="btn details-btn">More Details</a>
+    </div>
+  </div>
+
+  <!-- Silverio Ty Bhouse -->
+  <div class="room-item">
+    <img src="../static/images/p4.jpg.jpg" alt="Silverio Ty Bhouse">
+    <div class="room-details">
+      <h3>Silverio Ty Bhouse</h3>
+      <p>₱1,200 per month</p>
+      <p><strong>Type:</strong> Double Capacity Room</p>
+      <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
+      <p><strong>Facilities:</strong> Wifi, Electric Fan, Shared Bathroom</p>
+      <p><strong>Available:</strong> Room 1 and Room 2</p>
+    </div>
+    <div class="room-buttons">
+      <a href="{{ url_for('silverio') }}" class="btn reserve-btn">Reserve Now</a>
+      <a href="{{ url_for('silveriod') }}" class="btn details-btn">More Details</a>
+    </div>
+  </div>
+
+  <!-- Villasor Bhouse -->
+  <div class="room-item">
+    <img src="../static/images/p5.jpg.jpg" alt="Villasor Bhouse">
+    <div class="room-details">
+      <h3>Villasor Bhouse</h3>
+      <p>₱700 per month</p>
+      <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
+      <p><strong>Facilities:</strong> Wifi, Shared Bathroom</p>
+      <p><strong>Available:</strong> Room 6</p>
+    </div>
+    <div class="room-buttons">
+      <a href="{{ url_for('villasor') }}" class="btn reserve-btn">Reserve Now</a>
+      <a href="{{ url_for('villasord') }}" class="btn details-btn">More Details</a>
+    </div>
+  </div>
+
+  <!-- Paradise Core Bhouse -->
+  <div class="room-item">
+    <img src="../static/images/p6.jpg.jpg" alt="Paradise Core Bhouse">
+    <div class="room-details">
+      <h3>Paradise Core Bhouse</h3>
+      <p>₱1,000,000 per month</p>
+      <p><strong>Type:</strong> Double Capacity Room</p>
+      <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
+      <p><strong>Facilities:</strong> Wifi, Clean Towels, Shared Bathroom</p>
+      <p><strong>Available:</strong> Room 5 and Room 6</p>
+    </div>
+    <div class="room-buttons">
+      <a href="{{ url_for('paradise') }}" class="btn reserve-btn">Reserve Now</a>
+      <a href="{{ url_for('paradised') }}" class="btn details-btn">More Details</a>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
