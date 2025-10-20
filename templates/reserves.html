@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservation Status - Reveche Bhouse</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      background: #fff;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #415A77;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 25px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #415A77;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f2f6fa;
+    }
+
+    .status {
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 6px 12px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .pending {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .approved {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .declined {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    form {
+      display: inline;
+    }
+
+    select {
+      padding: 6px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 6px 12px;
+      background-color: #415A77;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    button:hover {
+      background-color: #324a66;
+    }
+
+    .message {
+      background-color: #e0e1dd;
+      color: #0D1B2A;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Reservation Status</h2>
+
+    {% if message %}
+    <div class="message">{{ message }}</div>
+    {% endif %}
+
+    <table>
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Contact</th>
+          <th>Duration</th>
+          <th>Move-in Date</th>
+          <th>Status</th>
+          <th>Update Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reservation in reservations %}
+        <tr>
+          <td>{{ reservation.name }}</td>
+          <td>{{ reservation.contact }}</td>
+          <td>{{ reservation.duration }}</td>
+          <td>{{ reservation.move_in }}</td>
+          <td>
+            <span class="status {{ reservation.status | lower }}">
+              {{ reservation.status }}
+            </span>
+          </td>
+          <td>
+            <form action="{{ url_for('update_status', id=reservation.id) }}" method="POST">
+              <select name="status">
+                <option value="Pending" {% if reservation.status == 'Pending' %}selected{% endif %}>Pending</option>
+                <option value="Approved" {% if reservation.status == 'Approved' %}selected{% endif %}>Approved</option>
+                <option value="Declined" {% if reservation.status == 'Declined' %}selected{% endif %}>Declined</option>
+              </select>
+              <button type="submit">Update</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

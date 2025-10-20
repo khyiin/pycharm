@@ -5,17 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="785d8ee0-e556-4207-a95b-125c7cde8ca0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/reserves.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instance/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/users.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/p3.jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/p4.jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/p6.jpg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/elora.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/elora.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/elorad.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/elorad.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paradise.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paradise.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/paradised.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paradised.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/quinny.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/quinny.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/quinnyd.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/quinnyd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reveche.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reveche.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reveched.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reveched.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/silverio.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/silverio.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/silveriod.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/silveriod.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tenant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tenant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/villasor.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/villasor.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/villasord.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/villasord.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -143,5 +143,10 @@ def admin_dashboard():
         return redirect(url_for('login'))
     return render_template('admin.html')
 
+@app.route('/reserves')
+def reserves():
+    return render_template('reserves.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

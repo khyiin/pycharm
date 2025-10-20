@@ -2,75 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Reserve - Reveche Bhouse</title>
+  <title>Reserve - Villasor Bhouse</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f0f4f8;
-      padding: 40px;
-    }
+    font-family: 'Poppins', sans-serif;
+    background: url('../static/images/bgres.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 50px;
+  }
     .container {
       background: #fff;
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 100px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
     h2 {
       text-align: center;
       color: #415A77;
+      margin-bottom: 30px;
     }
     label {
       display: block;
       margin: 15px 0 5px;
       font-weight: 500;
+      color: #333;
     }
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    button {
-      margin-top: 20px;
+    input, select {
       width: 100%;
       padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    /* FIXED checkbox alignment */
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      gap: 10px;
+      line-height: 1.4;
+    }
+    .checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #415A77;
+      flex-shrink: 0;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
       background-color: #415A77;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     button:hover {
       background-color: #324a66;
+    }
+    .message {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      background-color: #E0E1DD;
+      color: #0D1B2A;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Reserve a Room at Villasor Bhouse</h2>
-    <form action="#" method="post">
+    <form id="reservationForm">
       <label>Full Name</label>
       <input type="text" name="name" required>
 
       <label>Contact Number</label>
       <input type="text" name="contact" required>
 
-      <label>Room Number</label>
-      <select name="room">
-        <option>Room 2</option>
-      </select>
-
       <label>Duration of Stay</label>
-      <input type="text" name="duration" placeholder="e.g. 1 month">
+      <input type="text" name="duration" placeholder="e.g. 1 month" required>
 
-      <label>Additional Notes</label>
-      <textarea name="notes" rows="3"></textarea>
+      <label>Move-in Date</label>
+      <input type="date" name="movein" required>
+
+      <label class="checkbox-label">
+        <input type="checkbox" required>
+        <span>I agree to the boarding house rules and policies.</span>
+      </label>
 
       <button type="submit">Submit Reservation</button>
+      <div class="message" id="successMessage">✅ Reservation submitted! Please wait for updates.</div>
     </form>
   </div>
+
+  <script>
+    const form = document.getElementById('reservationForm');
+    const message = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      message.style.display = 'block';
+      form.reset();
+    });
+  </script>
 </body>
 </html>
