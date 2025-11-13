@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Room | Landlord Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: url("{{ url_for('static', filename='images/bg.jpg') }}") no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: #fff;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    .container {
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 95%;
+      max-width: 1100px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 2.4em;
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px 40px;
+      text-align: left;
+    }
+
+    label {
+      font-weight: 500;
+      font-size: 1.05em;
+      color: #f1f1f1;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 1em;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    textarea:focus {
+      border-color: #0D1B2A;
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 10px rgba(13, 27, 42, 0.6);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    input[type="file"] {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    input::file-selector-button {
+      background: #0D1B2A;
+      color: #fff;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    input::file-selector-button:hover {
+      background: #142c47;
+      transform: translateY(-1px);
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      grid-column: span 2;
+      background: #0D1B2A;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(13, 27, 42, 0.4);
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background: #142c47;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(13, 27, 42, 0.6);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 25px;
+      color: #e1e1e1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #1B9AAA;
+    }
+
+    /* Flash message styles */
+    .flash-messages {
+      margin-bottom: 20px;
+    }
+
+    .flash {
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Success message: white background, blue text, with checkmark */
+    .flash.success {
+      background-color: #fff;
+      color: #1B9AAA;
+      border: 2px solid #1B9AAA;
+      font-weight: 600;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+    }
+
+    .flash.error {
+      background-color: rgba(220, 53, 69, 0.8);
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+      .btn-submit {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add Room</h1>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('addroom') }}" method="POST" enctype="multipart/form-data">
+      <div>
+        <label for="photo">Upload a Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+      </div>
+
+      <div>
+        <label for="name">Name of Boarding House:</label>
+        <input type="text" id="name" name="name" placeholder="Enter boarding house name" required>
+      </div>
+
+      <div>
+        <label for="price">Price per month:</label>
+        <input type="number" id="price" name="price" placeholder="Enter price" required>
+      </div>
+
+      <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter location" required>
+      </div>
+
+      <div>
+        <label for="facilities">Facilities:</label>
+        <textarea id="facilities" name="facilities" placeholder="List available facilities" required></textarea>
+      </div>
+
+      <div>
+        <label for="room_type">Room Size/Type:</label>
+        <input type="text" id="room_type" name="room_type" placeholder="e.g. Single, Double, Studio" required>
+      </div>
+
+      <div>
+        <label for="rules">Major Rules:</label>
+        <textarea id="rules" name="rules" placeholder="Enter major house rules" required></textarea>
+      </div>
+
+      <div>
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" placeholder="Enter contact number or email" required>
+      </div>
+
+      <button type="submit" class="btn-submit">Add Room</button>
+    </form>
+
+    <a href="{{ url_for('landlord') }}" class="back-link">← Back to Dashboard</a>
+  </div>
+</body>
+</html>

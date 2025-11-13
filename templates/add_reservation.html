@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Reserve - Paradise Core Bhouse</title>
+  <title>Reserve Room</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -37,7 +37,7 @@
       font-size: 15px;
     }
 
-
+    /* Checkbox alignment */
     .checkbox-label {
       display: flex;
       align-items: center;
@@ -67,6 +67,7 @@
     button:hover {
       background-color: #324a66;
     }
+
     .message {
       display: none;
       margin-top: 20px;
@@ -81,20 +82,19 @@
 </head>
 <body>
   <div class="container">
-    <h2>Reserve a Room</h2>
+    <h2>Reserve Room</h2>
 
-
-    <form id="reservationForm" action="{{ url_for('submit_reservation', room_name=room_name) }}" method="POST">
-      <input type="hidden" name="room_id" value="1">
+   <form id="reservationForm" action="{{ url_for('submit_reservation', room_name=room.name) }}" method="POST">
+      <input type="hidden" name="room_id" value="{{ room.id }}">
 
       <label>Full Name</label>
-      <input type="text" name="full_name" required>
+      <input type="text" name="tenant_name" placeholder="Enter your full name" required>
 
       <label>Contact Number</label>
-      <input type="text" name="contact_number" placeholder="Enter your contact number" required>
+      <input type="text" name="tenant_contact" placeholder="Enter your contact number" required>
 
       <label>Duration of Stay</label>
-      <input type="text" name="duration_of_stay" placeholder="e.g. 1 month" required>
+      <input type="text" name="duration" placeholder="e.g. 1 month" required>
 
       <label>Move-in Date</label>
       <input type="date" name="move_in_date" required>
@@ -104,8 +104,7 @@
         <span>I agree to the boarding house rules and policies.</span>
       </label>
 
-      <button type="submit">Submit Reservation</button>
-
+      <button type="submit">Reserve Now</button>
 
       <div class="message" id="successMessage">
         ✅ Reservation submitted! Please wait for updates.
@@ -118,8 +117,7 @@
     const message = document.getElementById('successMessage');
 
     form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
+      e.preventDefault(); // prevent full page reload
 
       fetch(form.action, {
         method: 'POST',

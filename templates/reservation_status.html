@@ -13,7 +13,7 @@
 
     .container {
       background: #fff;
-      max-width: 900px;
+      max-width: 950px;
       margin: auto;
       padding: 30px;
       border-radius: 12px;
@@ -110,44 +110,45 @@
     <h2>Reservation Status</h2>
 
     {% if message %}
-    <div class="message">{{ message }}</div>
+      <div class="message">{{ message }}</div>
     {% endif %}
 
     <table>
       <thead>
         <tr>
+          <th>Room Name</th>
           <th>Full Name</th>
           <th>Contact</th>
           <th>Duration</th>
           <th>Move-in Date</th>
           <th>Status</th>
-          <th>Update Status</th>
         </tr>
       </thead>
       <tbody>
-        {% for reservation in reservations %}
-        <tr>
-          <td>{{ reservation.name }}</td>
-          <td>{{ reservation.contact }}</td>
-          <td>{{ reservation.duration }}</td>
-          <td>{{ reservation.move_in }}</td>
-          <td>
-            <span class="status {{ reservation.status | lower }}">
-              {{ reservation.status }}
-            </span>
-          </td>
-          <td>
-            <form action="{{ url_for('update_status', id=reservation.id) }}" method="POST">
-              <select name="status">
-                <option value="Pending" {% if reservation.status == 'Pending' %}selected{% endif %}>Pending</option>
-                <option value="Approved" {% if reservation.status == 'Approved' %}selected{% endif %}>Approved</option>
-                <option value="Declined" {% if reservation.status == 'Declined' %}selected{% endif %}>Declined</option>
-              </select>
-              <button type="submit">Update</button>
-            </form>
-          </td>
-        </tr>
-        {% endfor %}
+        {% if reservations %}
+          {% for r in reservations %}
+          <tr>
+            <td>{{ r.room.name }}</td>
+            <td>{{ r.full_name }}</td>
+            <td>{{ r.contact_number }}</td>
+            <td>{{ r.duration_of_stay }}</td>
+            <td>{{ r.move_in_date.strftime('%Y-%m-%d') }}</td>
+            <td>
+              {% if r.status == 'Pending' %}
+                <span class="badge bg-warning text-dark">Pending</span>
+              {% elif r.status == 'Approved' %}
+                <span class="badge bg-success">Approved</span>
+              {% elif r.status == 'Rejected' %}
+                <span class="badge bg-danger">Rejected</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="6" class="text-center">No reservations found.</td>
+          </tr>
+        {% endif %}
       </tbody>
     </table>
   </div>

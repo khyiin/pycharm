@@ -5,11 +5,11 @@
   <title>Reserve - Quinny Dy Bhouse</title>
   <style>
     body {
-    font-family: 'Poppins', sans-serif;
-    background: url('../static/images/bgres.jpg') no-repeat center center fixed;
-    background-size: cover;
-    padding: 50px;
-  }
+      font-family: 'Poppins', sans-serif;
+      background: url('../static/images/bgres.jpg') no-repeat center center fixed;
+      background-size: cover;
+      padding: 50px;
+    }
     .container {
       background: #fff;
       max-width: 700px;
@@ -37,7 +37,7 @@
       font-size: 15px;
     }
 
-    /* FIXED checkbox alignment */
+
     .checkbox-label {
       display: flex;
       align-items: center;
@@ -81,19 +81,23 @@
 </head>
 <body>
   <div class="container">
-    <h2>Reserve a Room at Quinny Dy Bhouse</h2>
-    <form id="reservationForm">
+    <h2>Reserve a Room</h2>
+
+
+    <form id="reservationForm" action="{{ url_for('submit_reservation', room_name=room_name) }}" method="POST">
+      <input type="hidden" name="room_id" value="1">
+
       <label>Full Name</label>
-      <input type="text" name="name" required>
+      <input type="text" name="full_name" required>
 
       <label>Contact Number</label>
-      <input type="text" name="contact" required>
+      <input type="text" name="contact_number" placeholder="Enter your contact number" required>
 
       <label>Duration of Stay</label>
-      <input type="text" name="duration" placeholder="e.g. 1 month" required>
+      <input type="text" name="duration_of_stay" placeholder="e.g. 1 month" required>
 
       <label>Move-in Date</label>
-      <input type="date" name="movein" required>
+      <input type="date" name="move_in_date" required>
 
       <label class="checkbox-label">
         <input type="checkbox" required>
@@ -101,7 +105,11 @@
       </label>
 
       <button type="submit">Submit Reservation</button>
-      <div class="message" id="successMessage">✅ Reservation submitted! Please wait for updates.</div>
+
+
+      <div class="message" id="successMessage">
+        ✅ Reservation submitted! Please wait for updates.
+      </div>
     </form>
   </div>
 
@@ -110,9 +118,22 @@
     const message = document.getElementById('successMessage');
 
     form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      message.style.display = 'block';
-      form.reset();
+      e.preventDefault(); // prevent full page reload
+
+      // Send form data using AJAX (fetch)
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => {
+        if (response.ok) {
+          message.style.display = 'block';
+          form.reset();
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(() => alert('Network error. Please try again.'));
     });
   </script>
 </body>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Reservations - Landlord</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            max-width: 1000px;
+            margin-top: 60px;
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #1b3358;
+            color: white;
+            font-weight: 600;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .status-badge {
+            font-size: 0.9rem;
+            padding: 6px 12px;
+            border-radius: 12px;
+        }
+        .btn-action {
+            border-radius: 8px;
+            padding: 5px 12px;
+        }
+        .btn-approve {
+            background-color: #1b3358;
+            color: #fff;
+        }
+        .btn-reject {
+            background-color: #c82333;
+            color: #fff;
+        }
+        .btn-approve:hover { background-color: #152748; }
+        .btn-reject:hover { background-color: #a71d2a; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-white shadow-sm px-4 py-3">
+    <span class="navbar-brand mb-0 h4 fw-bold">🏠 Landlord Dashboard</span>
+    <a href="{{ url_for('logout') }}" class="btn btn-outline-dark">Logout</a>
+</nav>
+
+<div class="container">
+    <h3 class="mb-4 fw-bold text-center">📋 View Reservations</h3>
+
+    {% if reservations %}
+        {% for r in reservations %}
+        <div class="card">
+            <div class="card-header">Reservation #{{ r.id }}</div>
+            <div class="card-body">
+
+                <h5 class="card-title">{{ r.room.name }}</h5>
+                <p class="mb-1"><strong>Tenant:</strong> {{ r.full_name }}</p>
+                <p class="mb-1"><strong>Contact:</strong> {{ r.contact_number }}</p>
+                <p class="mb-1"><strong>Duration of Stay:</strong> {{ r.duration_of_stay }}</p>
+                <p class="mb-1"><strong>Move-in Date:</strong> {{ r.move_in_date.strftime('%Y-%m-%d') }}</p>
+
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <span>
+                        <strong>Status:</strong>
+                        <span class="status-badge {% if r.status == 'Pending' %}bg-warning text-dark{% elif r.status == 'Approved' %}bg-success text-white{% else %}bg-danger text-white{% endif %}"
+                              id="status-badge-{{ r.id }}">{{ r.status }}</span>
+
+                        <div class="alert d-none mt-1" id="status-message-{{ r.id }}"></div>
+                    </span>
+
+                    {% if r.status == 'Pending' %}
+                    <div>
+                        <a href="#" class="btn btn-approve btn-action me-2" data-id="{{ r.id }}">Approve</a>
+                        <a href="#" class="btn btn-reject btn-action" data-id="{{ r.id }}">Reject</a>
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info text-center">No reservations found yet.</div>
+    {% endif %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.btn-approve').click(function(e) {
+        e.preventDefault();
+        var reservation_id = $(this).data('id');
+
+        $.post('/landlord/approve/' + reservation_id, function(response) {
+            if(response.success){
+                $('#status-message-' + reservation_id)
+                    .removeClass('d-none alert-danger')
+                    .addClass('alert-success')
+                    .text('Reservation has been approved!');  // Full message
+
+                $('#status-badge-' + reservation_id)
+                    .text('Approved')
+                    .removeClass('bg-warning bg-danger')
+                    .addClass('bg-success text-white');
+
+                $('a[data-id="'+reservation_id+'"]').hide();  // Hide buttons after click
+            }
+        });
+    });
+
+    $('.btn-reject').click(function(e) {
+        e.preventDefault();
+        var reservation_id = $(this).data('id');
+
+        $.post('/landlord/reject/' + reservation_id, function(response) {
+            if(response.success){
+                $('#status-message-' + reservation_id)
+                    .removeClass('d-none alert-success')
+                    .addClass('alert-danger')
+                    .text('Reservation has been rejected.');  // Full message
+
+                $('#status-badge-' + reservation_id)
+                    .text('Rejected')
+                    .removeClass('bg-warning bg-success')
+                    .addClass('bg-danger text-white');
+
+                $('a[data-id="'+reservation_id+'"]').hide();  // Hide buttons after click
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
+
+

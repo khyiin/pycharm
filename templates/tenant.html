@@ -19,13 +19,36 @@
       align-items: center;
     }
     header h1 { font-size: 24px; color: #000; }
-    nav a { text-decoration: none; color: #000; margin-left: 20px; font-weight: 500; }
+    nav a {
+  text-decoration: none;
+  color: #000;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
     nav a:hover { color: #415A77; }
-    h2 { text-align: center; margin: 40px 0 20px; font-size: 28px; font-weight: bold; letter-spacing: 2px; }
-    .room-list { display: flex; flex-direction: column; align-items: center; gap: 25px; padding: 20px 0 50px; }
+    h2 {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .room-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      padding: 20px 0 50px;
+    }
     .room-item {
-      display: flex; align-items: center; background: #fff; border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 85%; overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 85%;
+      overflow: hidden;
       transition: transform 0.3s ease;
     }
     .room-item:hover { transform: translateY(-3px); }
@@ -34,18 +57,30 @@
     .room-details h3 { margin: 0; font-size: 20px; color: #222; }
     .room-details p { margin: 6px 0; color: #555; font-size: 14px; }
     .room-buttons {
-      display: flex; flex-direction: column; justify-content: center;
-      align-items: flex-end; gap: 10px; padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 10px;
+      padding: 0 20px;
     }
     .btn {
-      padding: 10px 20px; border: none; border-radius: 6px; font-size: 14px;
-      cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
       text-align: center;
     }
     .reserve-btn { background-color: #415A77; color: white; }
     .reserve-btn:hover { background-color: #324a66; }
     .details-btn { background-color: #e0e0e0; color: #333; }
     .details-btn:hover { background-color: #d0d0d0; }
+    .logout-btn { background-color: #e74c3c; color: white; }
+    .logout-btn:hover { background-color: #c0392b; }
 
     @media (max-width: 768px) {
       .room-item { flex-direction: column; width: 95%; }
@@ -59,7 +94,10 @@
 <header>
   <h1>GET IT NOW</h1>
   <nav>
-    <a href="{{ url_for('reserves') }}">💬 Reservation Status</a>
+    <nav>
+  <a href="{{ url_for('reserves') }}">💬 Reservation Status</a>
+  <a href="{{ url_for('logout') }}">🚪 Log Out</a>
+</nav>
 
   </nav>
 </header>
@@ -68,18 +106,17 @@
 
 <div class="room-list">
 
-  <!-- Reveche Bhouse -->
+
   <div class="room-item">
     <img src="../static/images/p1.jpg.JPG" alt="Reveche Bhouse">
     <div class="room-details">
       <h3>Reveche Bhouse</h3>
       <p>₱1,500 per month</p>
-        <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
-        <p><strong>Facilities:</strong> Wifi, Electric Fan, Shared Bathroom</p>
-        <p><strong>Room Size:</strong> 10 sqm (Single Room)</p>
+      <p><strong>Location:</strong> Poblacion Ward II, Reveche Street, Quin City</p>
+      <p><strong>Facilities:</strong> Wifi, Electric Fan, Shared Bathroom</p>
+      <p><strong>Room Size:</strong> 10 sqm (Single Room)</p>
       <p><strong>Major Rules:</strong> No loud music after 10 PM. Visitors allowed until 9 PM only.</p>
       <p><strong>Contact:</strong> 0912-345-6789 (Ms. Anna)</p>
-
     </div>
     <div class="room-buttons">
       <a href="{{ url_for('reveche') }}" class="btn reserve-btn">Reserve Now</a>
@@ -87,18 +124,17 @@
     </div>
   </div>
 
-  <!-- Quinny Dy Bhouse -->
+
   <div class="room-item">
     <img src="../static/images/p2.jpg.jpg" alt="Quinny Dy Bhouse">
     <div class="room-details">
       <h3>Quinny Dy Bhouse</h3>
       <p>₱2,000 per month</p>
-        <p><strong>Location:</strong> Zone 3, Liberty Road, Quin City</p>
-        <p><strong>Facilities:</strong> Wifi, Private Bathroom, Mini Table</p>
+      <p><strong>Location:</strong> Zone 3, Liberty Road, Quin City</p>
+      <p><strong>Facilities:</strong> Wifi, Private Bathroom, Mini Table</p>
       <p><strong>Room Size:</strong> 14 sqm (Single Room)</p>
       <p><strong>Major Rules:</strong> No pets allowed. Keep the hallway clean.</p>
       <p><strong>Contact:</strong> 0998-765-4321 (Mr. Quin)</p>
-
     </div>
     <div class="room-buttons">
       <a href="{{ url_for('quinny') }}" class="btn reserve-btn">Reserve Now</a>
@@ -106,7 +142,7 @@
     </div>
   </div>
 
-  <!-- Elora Chin Bhouse -->
+
   <div class="room-item">
     <img src="../static/images/p3r.jpg" alt="Elora Chin Bhouse">
     <div class="room-details">
@@ -125,7 +161,7 @@
     </div>
   </div>
 
-  <!-- Silverio Ty Bhouse -->
+
   <div class="room-item">
     <img src="../static/images/p4r.jpg" alt="Silverio Ty Bhouse">
     <div class="room-details">
@@ -144,7 +180,7 @@
     </div>
   </div>
 
-  <!-- Villasor Bhouse -->
+
   <div class="room-item">
     <img src="../static/images/p5.jpg.jpg" alt="Villasor Bhouse">
     <div class="room-details">
@@ -163,7 +199,7 @@
     </div>
   </div>
 
-  <!-- Paradise Core Bhouse -->
+
   <div class="room-item">
     <img src="../static/images/p6r.jpg" alt="Paradise Core Bhouse">
     <div class="room-details">
@@ -182,6 +218,26 @@
     </div>
   </div>
 
+  {% for room in rooms %}
+  <div class="room-item">
+    <img src="{{ url_for('static', filename='uploads/' + room.photo) }}" alt="{{ room.name }}">
+    <div class="room-details">
+      <h3>{{ room.name }}</h3>
+      <p>₱{{ '{:,.2f}'.format(room.price) }} per month</p>
+      <p><strong>Location:</strong> {{ room.location }}</p>
+      <p><strong>Facilities:</strong> {{ room.facilities }}</p>
+      <p><strong>Room Size:</strong> {{ room.room_type }}</p>
+      <p><strong>Major Rules:</strong> {{ room.rules }}</p>
+      <p><strong>Contact:</strong> {{ room.contact }}</p>
+    </div>
+    <div class="room-buttons">
+      <a href="{{ url_for('reserve_room', room_id=room.id) }}" class="btn reserve-btn">Reserve Now</a>
+      <a href="{{ url_for('room_details', room_id=room.id) }}" class="btn details-btn">More Details</a>
+    </div>
+  </div>
+  {% endfor %}
+
 </div>
+
 </body>
 </html>
